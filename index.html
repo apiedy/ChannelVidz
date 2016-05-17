@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>ChannelVidz</title>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile.js"></script>    
+    <script type="text/javascript" src="js/index.js"></script>
+</head>
+
+<body>
+        <div data-role="page" id="main">
+            <div data-role="header">
+                <h1>ChannelVidz</h1>
+                <a href="#options" data-role="button" data-icon="gear" class="ui-btn-right">Options</a>
+            </div>
+
+            <div data-role="content">
+                <img src="img/logo.png" id="logo">
+                <div id="showVideo">
+                    
+                </div>
+                <br/><br/>
+                <ul id="vidlist" data-role="listview">
+                    
+                </ul>
+            </div>
+
+            <div data-role="footer">
+                <h4>Copyright &copy; 2016</h4>
+            </div>
+
+            <div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="c" data-dismissible="false" class="ui-corner-all">
+                <div data-role="header" data-theme="a" class="ui-corner-top">
+                    <h1>Add Channel</h1>
+                </div>
+
+                <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+                    <h3 class="ui-title">Enter a channel name</h3>
+                    <input type="text" id="channelName" placeholder="Channel Name" />
+                    <a href="#" id="channelBtnCancel" data-role="button" data-inline="true" data-rel="back" data-theme="c">Cancel</a>
+                    <a href="#" id="channelBtnOk" data-role="button" data-inline="true" data-rel="back" data-transition="flow" data-theme="b">OK</a>
+                </div>
+            </div>
+        </div>
+
+        <div data-role="page" id="options">
+            <div data-role="header">
+                <a href="#main" data-icon="delete" data-role="button">Cancel</a>
+                <h1>Options</h1>
+                <a href="#" id="saveOptions" data-role="button" data-icon="check" data-theme="b">Save</a>
+            </div>
+
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <label for="channelNameOptions">Channel Name:</label>
+                    <input type="text" name="channelNameOptions" id="channelNameOptions" placeholder="Enter channel name...">
+                    <br/><br/>
+                    <div class="ui-btn ui-input-btn ui-shadow">
+                        Clear channel
+                        <input type="button" id="clearChannel" data-corners="false" data-enhanced="true" value="Clear Channel">
+                    </div>
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="maxResultOptions">Max Results:</label>
+                    <input type="text" name="maxResultOptions" id="maxResultOptions" placeholder="Enter max results...">
+                </div>
+            </div>
+
+            <div data-role="footer">
+                <h4>Copyright &copy; 2016</h4>
+            </div>
+        </div>
+    <script type="text/javascript" src="cordova.js"></script>
+</body>
+
+</html>
